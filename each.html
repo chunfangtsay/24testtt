@@ -63,7 +63,7 @@ const id = parseInt(params.get("id")) || 1;
 const url = data[id - 1];
 
 // 載入到 iframe
-document.getElementById("frame").src = url;
+window.location.href = url;
 </script>
 
 </body>
