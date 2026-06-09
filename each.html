@@ -2,73 +2,68 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<title>Page</title>
+<title>Full Screen Page</title>
+
 <style>
-body {
-  font-family: sans-serif;
+html, body {
   margin: 0;
-  padding: 60px;
-  background: #000;
-  color: #fff;
+  padding: 0;
+  height: 100%;
+  background: black;
+  overflow: hidden;
 }
 
-.container {
-  max-width: 800px;
-  margin: auto;
-}
-
-a {
-  color: #4af;
+/* 全螢幕 iframe */
+iframe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-  <h1 id="title"></h1>
-  <p id="text"></p>
-  <a id="link" href="#" target="_blank"></a>
-</div>
+<iframe id="frame"></iframe>
 
 <script>
 const data = [
-  ["Page 1", "10:00-11:00", "https://example.com/1"],
-  ["Page 2", "11:00-12:00 Anchorage - Lake Hood", "https://www.youtube.com/watch?v=61pi8UjLOlo"],
-  ["Page 3", "12:00-13:00", "https://example.com/3"],
-  ["Page 4", "13:00-14:00 Pago Pago Airport, Samoa(USA)", "https://clipperoil.com/webcams/american-samoa-webcam/"],
-  ["Page 5", "This is page 5", "https://example.com/5"],
-  ["Page 6", "15:00-16:00 Wellington Airport, New Zealand", "https://www.youtube.com/watch?v=v7xySvhug0Y"],
-  ["Page 7", "16:00-17:00", "https://example.com/7"],
-  ["Page 8", "17:00-18:00 Canberra Airport, Australia", "https://www.canberraairport.com.au/flights/flightcam"],
-  ["Page 9", "18:00-19:00 Tokyo Haneda Airport, Japan", "https://worldcams.tv/taiwan/taoyuan/taiwan-taoyuan-airport"],
-  ["Page 10", "19:00-20:00 Taoyuan International Airport, Taiwan", "https://www.youtube.com/watch?v=wWEnxWA7nnY"],
-  ["Page 11", "20:00-21:00", "https://example.com/11"],
-  ["Page 12", "This is page 12", "https://example.com/12"],
-  ["Page 13", "This is page 13", "https://example.com/13"],
-  ["Page 14", "This is page 14", "https://example.com/14"],
-  ["Page 15", "This is page 15", "https://example.com/15"],
-  ["Page 16", "This is page 16", "https://example.com/16"],
-  ["Page 17", "This is page 17", "https://example.com/17"],
-  ["Page 18", "This is page 18", "https://example.com/18"],
-  ["Page 19", "This is page 19", "https://example.com/19"],
-  ["Page 20", "This is page 20", "https://example.com/20"],
-  ["Page 21", "This is page 21", "https://example.com/21"],
-  ["Page 22", "This is page 22", "https://example.com/22"],
-  ["Page 23", "This is page 23", "https://example.com/23"],
-  ["Page 24", "This is page 24", "https://example.com/24"]
+  "https://example.com/1",
+  "https://www.youtube.com/watch?v=61pi8UjLOlo",
+  "https://example.com/3",
+  "https://clipperoil.com/webcams/american-samoa-webcam/",
+  "https://example.com/5",
+  "https://www.youtube.com/watch?v=v7xySvhug0Y",
+  "https://example.com/7",
+  "https://www.canberraairport.com.au/flights/flightcam",
+  "https://worldcams.tv/taiwan/taoyuan/taiwan-taoyuan-airport",
+  "https://www.youtube.com/watch?v=wWEnxWA7nnY",
+  "https://example.com/11",
+  "https://example.com/12",
+  "https://example.com/13",
+  "https://example.com/14",
+  "https://example.com/15",
+  "https://example.com/16",
+  "https://example.com/17",
+  "https://example.com/18",
+  "https://example.com/19",
+  "https://example.com/20",
+  "https://example.com/21",
+  "https://example.com/22",
+  "https://example.com/23",
+  "https://example.com/24"
 ];
 
 const params = new URLSearchParams(window.location.search);
 const id = parseInt(params.get("id")) || 1;
-const item = data[id - 1];
 
-document.getElementById("title").innerText = item[0];
-document.getElementById("text").innerText = item[1];
+const url = data[id - 1];
 
-const link = document.getElementById("link");
-link.innerText = item[2];
-link.href = item[2];
+// 載入到 iframe
+document.getElementById("frame").src = url;
 </script>
 
 </body>
