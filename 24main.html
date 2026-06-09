@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>24 Pages Home</title>
+<style>
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 40px;
+  background: #111;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+a.button {
+  display: block;
+  padding: 20px;
+  text-align: center;
+  background: #222;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+a.button:hover {
+  background: #444;
+}
+</style>
+</head>
+
+<body>
+
+<h1>24 Pages</h1>
+
+<div class="grid">
+<script>
+for (let i = 1; i <= 24; i++) {
+  document.write(`<a class="button" href="page.html?id=${i}">Page ${i}</a>`);
+}
+</script>
+</div>
+
+</body>
+</html>

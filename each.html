@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>Page</title>
+<style>
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 60px;
+  background: #000;
+  color: #fff;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+a {
+  color: #4af;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1 id="title"></h1>
+  <p id="text"></p>
+  <a id="link" href="#" target="_blank"></a>
+</div>
+
+<script>
+const data = [
+  ["Page 1", "This is page 1", "https://example.com/1"],
+  ["Page 2", "This is page 2", "https://example.com/2"],
+  ["Page 3", "This is page 3", "https://example.com/3"],
+  ["Page 4", "This is page 4", "https://example.com/4"],
+  ["Page 5", "This is page 5", "https://example.com/5"],
+  ["Page 6", "This is page 6", "https://example.com/6"],
+  ["Page 7", "This is page 7", "https://example.com/7"],
+  ["Page 8", "This is page 8", "https://example.com/8"],
+  ["Page 9", "This is page 9", "https://example.com/9"],
+  ["Page 10", "This is page 10", "https://example.com/10"],
+  ["Page 11", "This is page 11", "https://example.com/11"],
+  ["Page 12", "This is page 12", "https://example.com/12"],
+  ["Page 13", "This is page 13", "https://example.com/13"],
+  ["Page 14", "This is page 14", "https://example.com/14"],
+  ["Page 15", "This is page 15", "https://example.com/15"],
+  ["Page 16", "This is page 16", "https://example.com/16"],
+  ["Page 17", "This is page 17", "https://example.com/17"],
+  ["Page 18", "This is page 18", "https://example.com/18"],
+  ["Page 19", "This is page 19", "https://example.com/19"],
+  ["Page 20", "This is page 20", "https://example.com/20"],
+  ["Page 21", "This is page 21", "https://example.com/21"],
+  ["Page 22", "This is page 22", "https://example.com/22"],
+  ["Page 23", "This is page 23", "https://example.com/23"],
+  ["Page 24", "This is page 24", "https://example.com/24"]
+];
+
+const params = new URLSearchParams(window.location.search);
+const id = parseInt(params.get("id")) || 1;
+const item = data[id - 1];
+
+document.getElementById("title").innerText = item[0];
+document.getElementById("text").innerText = item[1];
+
+const link = document.getElementById("link");
+link.innerText = item[2];
+link.href = item[2];
+</script>
+
+</body>
+</html>
